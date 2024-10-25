@@ -1,0 +1,18 @@
+services:
+  db:
+    container_name: db
+    image: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: secret
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodata:/data/db
+
+networks:
+  default:
+    name: skrecovery_network
+
+volumes:
+  mongodata:
